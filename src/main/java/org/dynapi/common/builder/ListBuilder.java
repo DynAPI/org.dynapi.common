@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * fluent {@link List} builder
+ */
 @EqualsAndHashCode
 public class ListBuilder<T> {
     protected final List<T> list = new ArrayList<>();

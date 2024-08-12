@@ -5,6 +5,9 @@ import lombok.EqualsAndHashCode;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * fluent {@link Map} builder
+ */
 @EqualsAndHashCode
 public class MapBuilder<K, V> {
     protected final Map<K, V> map = new HashMap<>();
