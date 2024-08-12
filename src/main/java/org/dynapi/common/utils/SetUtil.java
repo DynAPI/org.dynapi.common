@@ -11,4 +11,10 @@ public class SetUtil {
             merged.addAll(set);
         return merged;
     }
+
+    public static <T> Set<T> difference(Set<T> set1, Set<T> set2) {
+        Set<T> diff = new HashSet<>(set1);
+        diff.removeAll(set2);
+        return diff;
+    }
 }
