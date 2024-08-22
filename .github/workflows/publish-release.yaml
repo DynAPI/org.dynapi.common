@@ -22,19 +22,19 @@ jobs:
         uses: gradle/actions/setup-gradle@v3
       - name: Build with Gradle
         run: ./gradlew build
-#      - name: Changelog
-#        uses: Bullrich/generate-release-changelog@master
-#        id: changelog
-#        env:
-#          REPO: ${{ github.repository }}
+      - name: Changelog
+        uses: Bullrich/generate-release-changelog@master
+        id: changelog
+        env:
+          REPO: ${{ github.repository }}
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
           token: "${{ secrets.GITHUB_TOKEN }}"
           name: "org.dynapi:common ${{ github.ref_name }}"
-          generate_release_notes: true
-#          body: |
-#            ${{ steps.changelog.outputs.changelog }}
+#          generate_release_notes: true
+          body: |
+            ${{ steps.changelog.outputs.changelog }}
           draft: false
           prerelease: false
           make_latest: true
