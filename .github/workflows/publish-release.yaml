@@ -22,13 +22,21 @@ jobs:
         uses: gradle/actions/setup-gradle@v3
       - name: Build with Gradle
         run: ./gradlew build
+#      - name: Changelog
+#        uses: Bullrich/generate-release-changelog@master
+#        id: changelog
+#        env:
+#          REPO: ${{ github.repository }}
       - name: Release
-        uses: "marvinpinto/action-automatic-releases@latest"
+        uses: softprops/action-gh-release@v2
         with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "${{ github.ref_name }}"
+          token: "${{ secrets.GITHUB_TOKEN }}"
+          name: "org.dynapi:common ${{ github.ref_name }}"
+          generate_release_notes: true
+#          body: |
+#            ${{ steps.changelog.outputs.changelog }}
           draft: false
           prerelease: false
-          title: "org.dynapi:common ${{ github.ref_name }}"
+          make_latest: true
           files: |
             build/libs/*
