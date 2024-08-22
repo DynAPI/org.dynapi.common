@@ -23,10 +23,13 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build
       - name: Changelog
-        uses: Bullrich/generate-release-changelog@master
         id: changelog
-        env:
-          REPO: ${{ github.repository }}
+        uses: requarks/changelog-action@v1
+        with:
+          token: ${{ github.token }}
+          tag: ${{ github.ref_name }}
+          writeToFile: false
+          useGitmojis: false
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
@@ -34,7 +37,7 @@ jobs:
           name: "org.dynapi:common ${{ github.ref_name }}"
 #          generate_release_notes: true
           body: |
-            ${{ steps.changelog.outputs.changelog }}
+            ${{ steps.changelog.outputs.changes }}
           draft: false
           prerelease: false
           make_latest: true
