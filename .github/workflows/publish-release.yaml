@@ -22,23 +22,12 @@ jobs:
         uses: gradle/actions/setup-gradle@v3
       - name: Build with Gradle
         run: ./gradlew build
-      - name: Changelog
-        id: changelog
-        uses: requarks/changelog-action@v1
-        with:
-          token: ${{ github.token }}
-          tag: ${{ github.ref_name }}
-          writeToFile: false
-          useGitmojis: false
-          includeInvalidCommits: true
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
           token: "${{ secrets.GITHUB_TOKEN }}"
           name: "org.dynapi:common ${{ github.ref_name }}"
-#          generate_release_notes: true
-          body: |
-            ${{ steps.changelog.outputs.changes }}
+          generate_release_notes: true
           draft: false
           prerelease: false
           make_latest: true
