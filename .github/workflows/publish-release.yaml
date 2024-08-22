@@ -29,6 +29,6 @@ jobs:
           automatic_release_tag: "${{ github.ref_name }}"
           draft: false
           prerelease: false
-          title: "org.dynapi:common"
+          title: "org.dynapi:common ${{ github.ref_name }}"
           files: |
             build/libs/*
