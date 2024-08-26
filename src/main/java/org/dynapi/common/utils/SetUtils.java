@@ -14,7 +14,7 @@ public class SetUtils {
      */
     @SafeVarargs
     public static <T> Set<T> merged(Set<T>... sets) {
-        Set<T> merged = new HashSet<T>();
+        final Set<T> merged = new HashSet<T>();
         for (Set<T> set : sets)
             merged.addAll(set);
         return merged;
@@ -27,7 +27,7 @@ public class SetUtils {
      * @return {@link Set} containing the difference
      */
     public static <T> Set<T> difference(Set<T> set1, Set<T> set2) {
-        Set<T> diff = new HashSet<>(set1);
+        final Set<T> diff = new HashSet<>(set1);
         diff.removeAll(set2);
         return diff;
     }

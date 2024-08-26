@@ -14,7 +14,7 @@ public class MapUtils {
      */
     @SafeVarargs
     public static <K, V> Map<K, V> merged(Map<K, V>... maps) {
-        Map<K, V> result = new HashMap<>();
+        final Map<K, V> result = new HashMap<>();
         for (Map<K, V> map : maps)
             result.putAll(map);
         return result;

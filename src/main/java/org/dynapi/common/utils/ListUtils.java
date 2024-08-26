@@ -14,7 +14,7 @@ public class ListUtils {
      */
     @SafeVarargs
     public static <T> List<T> merged(List<T>... lists) {
-        List<T> merged = new ArrayList<>();
+        final List<T> merged = new ArrayList<>();
         for (List<T> list : lists)
             merged.addAll(list);
         return merged;
