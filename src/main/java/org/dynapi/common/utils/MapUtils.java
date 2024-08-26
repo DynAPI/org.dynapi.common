@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * utility methods for {@link Map}'s
  */
-public class MapUtil {
+public class MapUtils {
     /**
      * merge multiple lists
      * @param maps the maps to merge

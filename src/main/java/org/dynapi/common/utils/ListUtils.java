@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * utility methods for {@link List}'s
  */
-public class ListUtil {
+public class ListUtils {
     /**
      * merge multiple lists
      * @param lists the lists to merge

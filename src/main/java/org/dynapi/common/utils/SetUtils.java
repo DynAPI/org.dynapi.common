@@ -6,7 +6,7 @@ import java.util.Set;
 /**
  * utility methods for {@link Set}'s
  */
-public class SetUtil {
+public class SetUtils {
     /**
      * merge multiple sets
      * @param sets the sets to merge
