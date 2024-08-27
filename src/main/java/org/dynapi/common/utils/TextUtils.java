@@ -86,7 +86,7 @@ public abstract class TextUtils {
      * @param text text to split
      * @return array of lines
      */
-    public static String[] splitlines(String text) {
+    public static String[] splitLines(String text) {
         return splitLines(text, false);
     }
 
