@@ -22,13 +22,15 @@ public class SetUtils {
 
     /**
      * returns a new {@link Set} containing all elements from {@code set1} that are not in {@code set1}
-     * @param set1 base elements
-     * @param set2 elements that should be removed from {@code set1}
+     * @param set base elements
+     * @param others elements that should be removed from {@code set1}
      * @return {@link Set} containing the difference
      */
-    public static <T> Set<T> difference(Set<T> set1, Set<T> set2) {
-        final Set<T> diff = new HashSet<>(set1);
-        diff.removeAll(set2);
+    @SafeVarargs
+    public static <T> Set<T> difference(Set<T> set, Set<T>... others) {
+        final Set<T> diff = new HashSet<>(set);
+        for (Set<T> other : others)
+            diff.removeAll(other);
         return diff;
     }
 }
